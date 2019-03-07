@@ -1,0 +1,39 @@
+<?php 
+
+require './vendor/autoload.php';
+
+use QL\QueryList;
+
+// 待采集的页面地址
+$url = 'https://www.qiushibaike.com/pic/';
+
+// 采集规则
+$rules = [
+	// 作者
+    'auth' => ['h2','text'],
+    // 内容
+    'title' => ['span:eq(0)','text'],
+    // 文章链接地址
+    // 'link' => ['a:eq(0)','href'],
+    // 文章缩略图
+    'img' => ['img:eq(0)','src'],
+    // 文章简介
+    // 'summary' => ['p:eq(0)','text']
+];
+
+// 切片选择器
+$range = '#content-left>.article';
+
+$data = QueryList::Query($url,$rules,$range)->data;
+
+p($data); 
+
+
+
+
+
+function p($data){
+    echo "<pre style='font-size:14px;padding:10px 20px;background:#FFB7DD'>";
+    print_r($data);
+    echo "</pre>";
+}
