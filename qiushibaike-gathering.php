@@ -12,13 +12,9 @@ $rules = [
 	// 作者
     'auth' => ['h2','text'],
     // 内容
-    'title' => ['span:eq(0)','text'],
-    // 文章链接地址
-    // 'link' => ['a:eq(0)','href'],
-    // 文章缩略图
-    'img' => ['img:eq(0)','src'],
-    // 文章简介
-    // 'summary' => ['p:eq(0)','text']
+    'content' => ['span:eq(0)','text'],
+    // 图片
+    'imgSrc' => ['img:eq(0)','src'],
 ];
 
 // 切片选择器
